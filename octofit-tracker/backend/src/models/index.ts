@@ -12,6 +12,7 @@ export const User = model(
   ),
 );
 
+
 export const Team = model(
   'Team',
   new Schema(
