@@ -7,19 +7,15 @@ import {
   usersRouter,
   workoutsRouter,
 } from './routes/index.js';
+import { API_BASE_URL, API_PORT } from './server.js';
 
 const app = express();
-const port = 8000;
-const codespaceName = process.env.CODESPACE_NAME;
-const apiBaseUrl = codespaceName
-  ? `https://${codespaceName}-8000.app.github.dev`
-  : `http://localhost:${port}`;
 
 app.use(express.json());
 
 app.get('/api', (_request, response) => {
   response.json({
-    baseUrl: apiBaseUrl,
+    baseUrl: API_BASE_URL,
     endpoints: ['/api/users/', '/api/teams/', '/api/activities/', '/api/leaderboard/', '/api/workouts/'],
   });
 });
@@ -39,6 +35,6 @@ app.use((error: Error, _request: express.Request, response: express.Response, _n
   response.status(status).json({ error: error.message });
 });
 
-app.listen(port, () => {
-  console.log(`OctoFit API listening at ${apiBaseUrl}`);
+app.listen(API_PORT, () => {
+  console.log(`OctoFit API listening at ${API_BASE_URL}`);
 });
