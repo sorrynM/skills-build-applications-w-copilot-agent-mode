@@ -1,4 +1,4 @@
-import ResourcePage from './ResourcePage.jsx';
+import ResourcePage from '../ResourcePage.jsx';
 
 function formatDate(value) {
   if (!value) return 'Not set';

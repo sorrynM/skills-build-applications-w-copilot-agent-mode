@@ -1,4 +1,4 @@
-import ResourcePage from './ResourcePage.jsx';
+import ResourcePage from '../ResourcePage.jsx';
 
 const columns = [
   { key: 'displayName', label: 'Athlete' },
